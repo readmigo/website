@@ -1,0 +1,14 @@
+# Cloudflare Pages Redirects
+# https://developers.cloudflare.com/pages/configuration/redirects/
+
+# Pretty URLs (remove .html extension)
+/privacy.html    /privacy    301
+/terms.html      /terms      301
+/support.html    /support    301
+
+/zh/privacy.html    /zh/privacy    301
+/zh/terms.html      /zh/terms      301
+/zh/support.html    /zh/support    301
+
+/support/account-deletion.html       /support/account-deletion       301
+/zh/support/account-deletion.html    /zh/support/account-deletion    301

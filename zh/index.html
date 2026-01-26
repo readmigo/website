@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>米果智读 - AI智能英语阅读</title>
+    <meta name="description" content="阅读任何书籍，AI为你护航。米果智读是一款AI原生英语阅读学习应用，拥有10万+书籍。">
+    <meta name="keywords" content="英语学习, 阅读, AI, 词汇, 电子书, 经典文学">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="米果智读 - AI智能英语阅读">
+    <meta property="og:description" content="阅读任何书籍，AI为你护航。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://readmigo.app/zh/">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        secondary: '#8b5cf6',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+    <script>
+        // Auto-detect language and redirect if needed
+        (function() {
+            // Check if user has manually selected a language preference
+            const userLangPreference = localStorage.getItem('readmigo-lang-preference');
+
+            // If user hasn't set a preference, auto-detect browser language
+            if (!userLangPreference) {
+                const browserLang = navigator.language || navigator.userLanguage;
+                // If browser is not Chinese and we're on Chinese page, redirect to English
+                if (!browserLang.startsWith('zh') && window.location.pathname.startsWith('/zh/')) {
+                    window.location.href = '/';
+                }
+            }
+        })();
+    </script>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
+        <nav class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="/zh/" class="text-2xl font-bold text-gradient">米果智读</a>
+            <div class="flex items-center gap-6">
+                <a href="/zh/support" class="text-gray-600 hover:text-gray-900 transition">帮助中心</a>
+                <div class="flex items-center gap-2 text-sm">
+                    <a href="/" class="text-gray-600 hover:text-gray-900" onclick="localStorage.setItem('readmigo-lang-preference', 'en')">English</a>
+                    <span class="text-gray-300">|</span>
+                    <span class="text-primary font-medium">中文</span>
+                </div>
+                <a href="#download" class="bg-primary text-white px-4 py-2 rounded-full hover:bg-primary/90 transition">
+                    立即下载
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                    阅读任何书籍<br>
+                    <span class="text-gradient">AI为你护航</span>
+                </h1>
+                <p class="text-xl text-gray-600 mb-8">
+                    米果智读是一款专为全球学习者设计的AI原生英语阅读应用。
+                    在智能AI辅助下，轻松阅读经典文学作品。
+                </p>
+                <div id="download" class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="https://apps.apple.com/us/app/readmigo/id6756987013" class="inline-flex items-center justify-center bg-black text-white px-6 py-3 rounded-xl hover:bg-gray-800 transition">
+                        <svg class="w-8 h-8 mr-3" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                        </svg>
+                        <div class="text-left">
+                            <div class="text-xs">下载应用</div>
+                            <div class="text-lg font-semibold -mt-1">App Store</div>
+                        </div>
+                    </a>
+                    <a href="#" class="inline-flex items-center justify-center bg-black text-white px-6 py-3 rounded-xl hover:bg-gray-800 transition">
+                        <svg class="w-8 h-8 mr-3" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
+                        </svg>
+                        <div class="text-left">
+                            <div class="text-xs">立即下载</div>
+                            <div class="text-lg font-semibold -mt-1">Google Play</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 px-6 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">
+                掌握英语阅读所需的 <span class="text-gradient">一切功能</span>
+            </h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm">
+                    <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">10万+图书</h3>
+                    <p class="text-gray-600">海量古腾堡计划书库，从莎士比亚到简·奥斯汀的经典作品应有尽有。</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm">
+                    <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">AI单词解释</h3>
+                    <p class="text-gray-600">轻点任意单词，即可获得AI提供的即时、结合上下文的精准释义。</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm">
+                    <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">句子简化</h3>
+                    <p class="text-gray-600">复杂句子轻松理解。AI瞬间简化难懂段落，让阅读更顺畅。</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm">
+                    <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">智能翻译</h3>
+                    <p class="text-gray-600">将段落翻译为母语，帮助你更好地理解内容含义。</p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm">
+                    <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">词汇学习</h3>
+                    <p class="text-gray-600">阅读时收藏生词，通过间隔重复记忆卡片牢固掌握。</p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm">
+                    <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">进度追踪</h3>
+                    <p class="text-gray-600">阅读统计、词汇增长和成就记录，一站式呈现你的学习历程。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-6 gradient-bg text-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                立即开始你的英语阅读之旅
+            </h2>
+            <p class="text-xl opacity-90 mb-8">
+                下载米果智读，探索英语阅读的乐趣。
+            </p>
+            <a href="#download" class="inline-block bg-white text-primary px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition">
+                免费下载
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 bg-gray-900 text-gray-400">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">米果智读</h3>
+                    <p class="text-sm">人人都能使用的AI智能英语阅读学习应用。</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">法律信息</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/zh/privacy" class="hover:text-white transition">隐私政策</a></li>
+                        <li><a href="/zh/terms" class="hover:text-white transition">服务条款</a></li>
+                        <li><a href="/zh/credits" class="hover:text-white transition">致谢</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">帮助与支持</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/zh/support" class="hover:text-white transition">帮助中心</a></li>
+                        <li><a href="/zh/support/account-deletion" class="hover:text-white transition">删除账户</a></li>
+                        <li><a href="mailto:support@readmigo.app" class="hover:text-white transition">联系我们</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">语言</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/" class="hover:text-white transition">English</a></li>
+                        <li><a href="/zh/" class="text-white">中文</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-sm text-center">
+                <p>&copy; 2025-2026 Readmigo. 保留所有权利。</p>
+                <p class="mt-2">42 Church Ave, Mascot, NSW 2020, Sydney, Australia</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
