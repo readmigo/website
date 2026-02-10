@@ -7,26 +7,35 @@ Marketing website for Readmigo - AI-powered English reading companion.
 ## Project Structure
 
 ```
-├── src/
-│   ├── app/             # Next.js pages
-│   ├── components/      # React components
-│   └── styles/          # Global styles
-└── public/              # Static assets
+├── assets/               # Static assets (favicon, etc.)
+├── support/              # Support pages
+├── zh/                   # Chinese language version
+├── index.html            # English homepage
+├── zh/index.html         # Chinese homepage
+├── privacy.html          # Privacy policy
+├── terms.html            # Terms of service
+├── credits.html          # Credits/Attribution
+├── support.html          # Support/Help center
+├── reset-password.html   # Password reset
+├── _headers              # Cloudflare Pages headers config
+└── _redirects            # Cloudflare Pages redirects config
 ```
 
 ## Development Rules
 
 ### Tech Stack
 
-- Framework: Next.js
-- Language: TypeScript
-- Styling: Tailwind CSS
-- Animations: Framer Motion
+- Static HTML with Tailwind CSS (via CDN)
+- Bilingual: English (`/`) and Chinese (`/zh/`)
+- No build step required
 
 ### Deployment
 
-- Auto-deploy: Code pushed to GitHub will automatically deploy via Vercel
-- Branch: `main` branch triggers production deployment
+- Platform: Cloudflare Pages
+- Project name: `readmigo`
+- Deploy command: `unset HTTP_PROXY HTTPS_PROXY ALL_PROXY http_proxy https_proxy all_proxy && wrangler pages deploy . --project-name=readmigo --branch=main`
+- Note: Must unset proxy env vars before deploying, otherwise wrangler auth fails
+- Domains: readmigo.pages.dev, readmigo.app
 
 ## Investigation & Problem Analysis
 
@@ -41,4 +50,4 @@ When investigating problems, output using this template:
 
 | Environment | URL |
 |-------------|-----|
-| Production | https://readmigo.com |
+| Production | https://readmigo.app |
