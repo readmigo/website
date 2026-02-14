@@ -147,32 +147,88 @@
         </div>
     </section>
 
-    <!-- Story -->
+    <!-- Localization -->
     <section class="py-16 px-6">
         <div class="max-w-4xl mx-auto">
-            <h2 class="text-2xl font-bold mb-6 text-center" data-i18n="about_story_title">Our Story</h2>
-            <div class="max-w-3xl mx-auto space-y-4 text-text-secondary leading-relaxed">
-                <p data-i18n="about_story_p1">
-                    Millions of people dream of reading English classics in their original language. But language barriers turn this dream into frustration. Traditional ebook readers offer no help when you're stuck.
-                </p>
-                <p data-i18n="about_story_p2">
-                    Readmigo changes everything. We've built the world's first AI-native reading platform designed specifically for non-native English speakers. Our intelligent AI coach actively monitors your reading, detects when you're struggling, and provides contextual assistance exactly when needed.
-                </p>
-                <p data-i18n="about_story_p3">
-                    From tap-to-translate to sentence simplification, from audiobooks to vocabulary building with spaced repetition, Readmigo transforms reading from frustrating to effortless.
-                </p>
-            </div>
-        </div>
-    </section>
+            <h2 class="text-2xl font-bold mb-4 text-center" data-i18n="about_story_title">Built for the World</h2>
+            <p class="text-text-secondary text-center max-w-2xl mx-auto mb-12" data-i18n="about_story_subtitle">Readmigo is localized for the top 10 global languages — not just the UI, but the entire reading experience.</p>
 
-    <!-- CTA -->
-    <section class="py-16 px-6 gradient-bg text-white">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-4" data-i18n="about_cta_title">Ready to start reading?</h2>
-            <p class="text-lg opacity-90 mb-8" data-i18n="about_cta_subtitle">Join readers worldwide who are discovering the joy of English literature.</p>
-            <a href="https://web.readmigo.app/" target="_blank" rel="noopener" class="inline-block bg-white text-primary px-8 py-4 rounded-full font-semibold hover:bg-gray-100 hover:shadow-lg transition-all" data-i18n="cta_button">
-                Get Started Free
-            </a>
+            <!-- 3 pillars -->
+            <div class="grid md:grid-cols-3 gap-6 mb-12">
+                <div class="bg-bg-light rounded-2xl p-6 text-center">
+                    <div class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+                    </div>
+                    <h3 class="font-semibold mb-2" data-i18n="about_l10n_ui_title">11 UI Languages</h3>
+                    <p class="text-text-secondary text-sm leading-relaxed" data-i18n="about_l10n_ui_desc">The entire app interface — menus, settings, notifications — is fully translated into 11 languages.</p>
+                </div>
+                <div class="bg-bg-light rounded-2xl p-6 text-center">
+                    <div class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                    </div>
+                    <h3 class="font-semibold mb-2" data-i18n="about_l10n_content_title">Content Localization</h3>
+                    <p class="text-text-secondary text-sm leading-relaxed" data-i18n="about_l10n_content_desc">Book titles, descriptions, author bios, genres, and booklists are all localized — not just the UI.</p>
+                </div>
+                <div class="bg-bg-light rounded-2xl p-6 text-center">
+                    <div class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/></svg>
+                    </div>
+                    <h3 class="font-semibold mb-2" data-i18n="about_l10n_translate_title">Long-Press Translation</h3>
+                    <p class="text-text-secondary text-sm leading-relaxed" data-i18n="about_l10n_translate_desc">Long-press any paragraph to instantly translate into your native language. 10 languages supported.</p>
+                </div>
+            </div>
+
+            <!-- Language grid -->
+            <div class="bg-bg-light rounded-2xl p-8">
+                <h3 class="font-semibold text-center mb-6" data-i18n="about_l10n_langs_title">Supported Languages</h3>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 text-sm">
+                    <div class="flex items-center gap-2.5 bg-white rounded-lg px-3 py-2.5">
+                        <span class="text-lg">🇺🇸</span>
+                        <span>English</span>
+                    </div>
+                    <div class="flex items-center gap-2.5 bg-white rounded-lg px-3 py-2.5">
+                        <span class="text-lg">🇨🇳</span>
+                        <span>简体中文</span>
+                    </div>
+                    <div class="flex items-center gap-2.5 bg-white rounded-lg px-3 py-2.5">
+                        <span class="text-lg">🇹🇼</span>
+                        <span>繁體中文</span>
+                    </div>
+                    <div class="flex items-center gap-2.5 bg-white rounded-lg px-3 py-2.5">
+                        <span class="text-lg">🇪🇸</span>
+                        <span>Español</span>
+                    </div>
+                    <div class="flex items-center gap-2.5 bg-white rounded-lg px-3 py-2.5">
+                        <span class="text-lg">🇸🇦</span>
+                        <span>العربية</span>
+                    </div>
+                    <div class="flex items-center gap-2.5 bg-white rounded-lg px-3 py-2.5">
+                        <span class="text-lg">🇧🇷</span>
+                        <span>Português</span>
+                    </div>
+                    <div class="flex items-center gap-2.5 bg-white rounded-lg px-3 py-2.5">
+                        <span class="text-lg">🇮🇩</span>
+                        <span>Bahasa Indonesia</span>
+                    </div>
+                    <div class="flex items-center gap-2.5 bg-white rounded-lg px-3 py-2.5">
+                        <span class="text-lg">🇫🇷</span>
+                        <span>Français</span>
+                    </div>
+                    <div class="flex items-center gap-2.5 bg-white rounded-lg px-3 py-2.5">
+                        <span class="text-lg">🇯🇵</span>
+                        <span>日本語</span>
+                    </div>
+                    <div class="flex items-center gap-2.5 bg-white rounded-lg px-3 py-2.5">
+                        <span class="text-lg">🇷🇺</span>
+                        <span>Русский</span>
+                    </div>
+                    <div class="flex items-center gap-2.5 bg-white rounded-lg px-3 py-2.5">
+                        <span class="text-lg">🇰🇷</span>
+                        <span>한국어</span>
+                    </div>
+                </div>
+                <p class="text-xs text-text-secondary text-center mt-4" data-i18n="about_l10n_extra">+ Hindi and German for long-press translation</p>
+            </div>
         </div>
     </section>
 
