@@ -1,19 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Service - Readmigo</title>
     <meta name="description" content="Readmigo Terms of Service - Read our terms and conditions for using the service.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Terms of Service - Readmigo">
+    <meta property="og:description" content="Read our terms and conditions for using the service.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://readmigo.app/terms">
+
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        .text-gradient {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#7C8DF5',
+                        'primary-dark': '#6B7AE8',
+                        secondary: '#B9B3F5',
+                        'brand-blue': '#8BB9FF',
+                        'brand-purple': '#B9B3F5',
+                        'brand-pink': '#F6B6E8',
+                        'text-primary': '#2D2E4A',
+                        'text-secondary': '#6B6F9C',
+                        'bg-light': '#F7F8FD',
+                        'bg-subtle': '#EEF0FA',
+                    }
+                }
+            }
         }
+    </script>
+    <style>
+        .gradient-bg { background: linear-gradient(135deg, #8BB9FF 0%, #B9B3F5 50%, #F6B6E8 100%); }
+        .text-gradient { background: linear-gradient(135deg, #8BB9FF 0%, #B9B3F5 50%, #F6B6E8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        #mobile-menu { display: none; }
+        #mobile-menu.open { display: block; }
         .prose h2 { margin-top: 2rem; margin-bottom: 1rem; font-size: 1.5rem; font-weight: 600; }
         .prose h3 { margin-top: 1.5rem; margin-bottom: 0.75rem; font-size: 1.25rem; font-weight: 600; }
         .prose p { margin-bottom: 1rem; line-height: 1.75; }
@@ -24,24 +52,54 @@
         .prose th { background-color: #f9fafb; font-weight: 600; }
     </style>
 </head>
-<body class="bg-white text-gray-900 antialiased">
+<body class="bg-white text-text-primary antialiased">
     <!-- Header -->
-    <header class="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
-        <nav class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="/" class="text-2xl font-bold text-gradient">Readmigo</a>
-            <div class="flex items-center gap-4 text-sm">
-                <a href="/terms" class="text-primary font-medium">English</a>
-                <span class="text-gray-300">|</span>
-                <a href="/zh/terms" class="text-gray-600 hover:text-gray-900">中文</a>
+    <header class="fixed top-0 left-0 right-0 bg-white z-50 border-b border-gray-100/60">
+        <nav class="max-w-6xl mx-auto px-6 py-3.5 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-2.5">
+                <img src="/assets/logo.png" alt="Readmigo" class="w-8 h-8 rounded-lg">
+                <span class="text-xl font-bold text-gradient">Readmigo</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="/#products" class="text-text-secondary hover:text-text-primary transition text-sm font-medium" data-i18n="nav_products">Products</a>
+                <a href="/#features" class="text-text-secondary hover:text-text-primary transition text-sm font-medium" data-i18n="nav_features">Features</a>
+                <a href="/about" class="text-text-secondary hover:text-text-primary transition text-sm font-medium" data-i18n="nav_about">About</a>
+                <a href="https://blog.readmigo.app" target="_blank" rel="noopener" class="text-text-secondary hover:text-text-primary transition text-sm font-medium" data-i18n="nav_blog">Blog</a>
+                <a href="/support" class="text-text-secondary hover:text-text-primary transition text-sm font-medium" data-i18n="nav_support">Support</a>
             </div>
+            <div class="hidden md:flex items-center gap-4">
+                <a href="https://github.com/readmigo" target="_blank" rel="noopener" class="text-text-secondary hover:text-text-primary transition" aria-label="GitHub">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+                <div class="relative">
+                    <button id="lang-toggle" class="flex items-center gap-1 text-sm text-text-secondary hover:text-text-primary transition cursor-pointer">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+                        <span id="lang-current">English</span>
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div id="lang-menu" class="hidden absolute right-0 mt-2 w-44 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50 max-h-80 overflow-y-auto"></div>
+                </div>
+            </div>
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-text-secondary hover:text-text-primary">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
         </nav>
+        <div id="mobile-menu" class="md:hidden bg-white border-t border-gray-100 px-6 py-4">
+            <div class="flex flex-col gap-4">
+                <a href="/#products" class="text-text-secondary hover:text-text-primary transition text-sm font-medium" data-i18n="nav_products">Products</a>
+                <a href="/#features" class="text-text-secondary hover:text-text-primary transition text-sm font-medium" data-i18n="nav_features">Features</a>
+                <a href="/about" class="text-text-secondary hover:text-text-primary transition text-sm font-medium" data-i18n="nav_about">About</a>
+                <a href="https://blog.readmigo.app" target="_blank" rel="noopener" class="text-text-secondary hover:text-text-primary transition text-sm font-medium" data-i18n="nav_blog">Blog</a>
+                <a href="/support" class="text-text-secondary hover:text-text-primary transition text-sm font-medium" data-i18n="nav_support">Support</a>
+            </div>
+        </div>
     </header>
 
     <!-- Content -->
     <main class="pt-24 pb-16 px-6">
         <article class="max-w-4xl mx-auto prose">
             <h1 class="text-3xl font-bold mb-2">Terms of Service</h1>
-            <p class="text-gray-500 mb-8"><strong>Last Updated: January 2026</strong></p>
+            <p class="text-text-secondary mb-8"><strong>Last Updated: January 2026</strong></p>
 
             <h2>1. Acceptance of Terms</h2>
             <p>By accessing or using Readmigo ("the Service"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use the Service.</p>
@@ -188,7 +246,7 @@
                     </tr>
                 </tbody>
             </table>
-            <p class="text-sm text-gray-500"><em>Prices may vary by region. Check App Store for current pricing.</em></p>
+            <p class="text-sm text-text-secondary"><em>Prices may vary by region. Check App Store for current pricing.</em></p>
 
             <h2>Appendix B: Age Requirements</h2>
             <ul>
@@ -200,16 +258,82 @@
     </main>
 
     <!-- Footer -->
-    <footer class="py-8 px-6 bg-gray-100 text-gray-600 text-sm">
-        <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-            <p>&copy; 2025-2026 Readmigo. All rights reserved.</p>
-            <div class="flex gap-6">
-                <a href="/privacy" class="hover:text-gray-900">Privacy Policy</a>
-                <a href="/terms" class="hover:text-gray-900">Terms of Service</a>
-                <a href="/support" class="hover:text-gray-900">Support</a>
-                <a href="/credits" class="hover:text-gray-900">Credits</a>
+    <footer class="pt-16 pb-8 px-6 bg-[#0a0a1a] text-gray-400 border-t border-white/5">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-10 mb-12">
+                <div class="max-w-xs">
+                    <a href="/" class="flex items-center gap-2.5 mb-3">
+                        <picture>
+                            <source srcset="/assets/logo.webp" type="image/webp">
+                            <img src="/assets/logo.png" alt="Readmigo" class="w-8 h-8 rounded-lg" width="32" height="32">
+                        </picture>
+                        <span class="text-xl font-bold text-gradient">Readmigo</span>
+                    </a>
+                    <p class="text-sm text-gray-500 leading-relaxed" data-i18n="footer_tagline">AI-powered English reading and learning for everyone.</p>
+                    <div class="flex items-center gap-4 mt-5">
+                        <a href="https://github.com/readmigo" target="_blank" rel="noopener" class="text-gray-600 hover:text-white transition" aria-label="GitHub"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+                        <a href="https://x.com/nicekwell" target="_blank" rel="noopener" class="text-gray-600 hover:text-white transition" aria-label="X (Twitter)"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+                        <a href="mailto:support@readmigo.app" class="text-gray-600 hover:text-white transition" aria-label="Email"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></a>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-10">
+                    <div>
+                        <h4 class="text-white font-semibold mb-4 text-sm" data-i18n="footer_col_products">Products</h4>
+                        <ul class="space-y-2.5 text-sm">
+                            <li><a href="https://apps.apple.com/us/app/readmigo/id6756987013" target="_blank" rel="noopener" class="hover:text-white transition">Readmigo iOS</a></li>
+                            <li><a href="https://web.readmigo.app/" target="_blank" rel="noopener" class="hover:text-white transition">Readmigo Web</a></li>
+                            <li><a href="https://rss.mcloud88.com" target="_blank" rel="noopener" class="hover:text-white transition">FocusReader</a></li>
+                            <li><a href="https://ai.readmigo.app" target="_blank" rel="noopener" class="hover:text-white transition">AI Tech Review</a></li>
+                            <li class="flex items-center gap-1.5">
+                                <a href="#" class="text-gray-600 cursor-default">Readmigo Android</a>
+                                <span class="text-[10px] text-brand-pink font-medium" data-i18n="hero_gplay_soon">Coming Soon</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-semibold mb-4 text-sm" data-i18n="footer_col_company">Company</h4>
+                        <ul class="space-y-2.5 text-sm">
+                            <li><a href="/about" class="hover:text-white transition" data-i18n="nav_about">About</a></li>
+                            <li><a href="https://ai.readmigo.app" target="_blank" rel="noopener" class="hover:text-white transition" data-i18n="footer_blog">Blog</a></li>
+                            <li><a href="/credits" class="hover:text-white transition" data-i18n="footer_credits">Credits</a></li>
+                            <li><a href="https://github.com/readmigo" target="_blank" rel="noopener" class="hover:text-white transition">GitHub</a></li>
+                            <li><a href="https://readmigo.github.io/docs/" target="_blank" rel="noopener" class="hover:text-white transition" data-i18n="footer_docs">Documentation</a></li>
+                            <li><a href="https://blog.readmigo.app" target="_blank" rel="noopener" class="hover:text-white transition" data-i18n="footer_blog_official">Blog</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-semibold mb-4 text-sm" data-i18n="footer_support">Support</h4>
+                        <ul class="space-y-2.5 text-sm">
+                            <li><a href="/support" class="hover:text-white transition" data-i18n="footer_help">Help Center</a></li>
+                            <li><a href="mailto:support@readmigo.app" class="hover:text-white transition" data-i18n="footer_contact">Contact Us</a></li>
+                            <li><a href="/support/account-deletion" class="hover:text-white transition" data-i18n="footer_delete">Delete Account</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-semibold mb-4 text-sm" data-i18n="footer_legal">Legal</h4>
+                        <ul class="space-y-2.5 text-sm">
+                            <li><a href="/privacy" class="hover:text-white transition" data-i18n="footer_privacy">Privacy Policy</a></li>
+                            <li><a href="/terms" class="hover:text-white transition" data-i18n="footer_terms">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-semibold mb-4 text-sm" data-i18n="footer_col_language">Language</h4>
+                        <ul id="footer-langs" class="space-y-2.5 text-sm"></ul>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-white/5 pt-6 flex flex-col md:flex-row md:items-center md:justify-between gap-2 text-xs text-gray-600">
+                <p data-i18n="footer_rights">&copy; 2025-2026 Readmigo. All rights reserved.</p>
+                <p data-i18n="footer_address">42 Church Ave, Mascot, NSW 2020, Sydney, Australia</p>
             </div>
         </div>
     </footer>
+
+    <script src="/js/i18n.js"></script>
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('open');
+        });
+    </script>
 </body>
 </html>
