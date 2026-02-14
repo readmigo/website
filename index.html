@@ -139,9 +139,6 @@
                     <div id="lang-menu" class="hidden absolute right-0 mt-2 w-44 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50 max-h-80 overflow-y-auto">
                     </div>
                 </div>
-                <a href="#download" class="btn-gradient text-white px-5 py-2 rounded-full text-sm font-semibold hover:shadow-lg transition-all" data-i18n="nav_get_started">
-                    Get Started
-                </a>
             </div>
 
             <!-- Mobile menu button -->
@@ -166,9 +163,6 @@
                     <div id="lang-menu-mobile" class="hidden mt-2 w-44 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50 max-h-80 overflow-y-auto">
                     </div>
                 </div>
-                <a href="#download" class="btn-gradient text-white px-5 py-2.5 rounded-full text-sm font-semibold text-center hover:shadow-lg transition-all" data-i18n="nav_get_started">
-                    Get Started
-                </a>
             </div>
         </div>
     </header>
@@ -218,7 +212,7 @@
     </section>
 
     <!-- Banner 1: Hero Image -->
-    <section class="bg-[#0a0a1a] px-6 pb-24">
+    <section class="py-16 px-6 bg-white">
         <div class="max-w-5xl mx-auto">
             <div class="overflow-hidden rounded-2xl reveal-scale">
                 <img src="/assets/banner-hero.png" alt="Readmigo - Read any book. AI has your back." class="w-full h-auto banner-img" loading="lazy">
@@ -308,8 +302,34 @@
         </div>
     </section>
 
+    <!-- Banner 3: Reading -->
+    <section class="py-20 px-6 bg-bg-light">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-10 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 tracking-tight" data-i18n="banner_reading_title">Great books shouldn't be this hard.</h2>
+                <p class="text-text-secondary text-lg max-w-2xl mx-auto" data-i18n="banner_reading_subtitle">AI-powered translation and vocabulary tools make classic literature accessible to every English learner.</p>
+            </div>
+            <div class="overflow-hidden rounded-2xl reveal-scale">
+                <img src="/assets/banner-reading.png" alt="Great books shouldn't be this hard - Readmigo" class="w-full h-auto banner-img" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner 4: Classics -->
+    <section class="py-20 px-6 bg-white">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-10 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 tracking-tight" data-i18n="banner_classics_title">Read English classics like never before.</h2>
+                <p class="text-text-secondary text-lg max-w-2xl mx-auto" data-i18n="banner_classics_subtitle">Join millions of learners discovering the joy of reading original English literature with AI assistance.</p>
+            </div>
+            <div class="overflow-hidden rounded-2xl reveal-scale">
+                <img src="/assets/banner-classics.png" alt="Read English classics like never before - Readmigo" class="w-full h-auto banner-img" loading="lazy">
+            </div>
+        </div>
+    </section>
+
     <!-- Products Section -->
-    <section id="products" class="py-24 px-6 bg-white">
+    <section id="products" class="py-24 px-6 bg-bg-light">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16 reveal">
                 <h2 class="text-3xl md:text-5xl font-bold mb-4 tracking-tight">
@@ -322,7 +342,7 @@
 
             <div class="grid md:grid-cols-3 gap-6">
                 <!-- Product 1: Readmigo -->
-                <div class="bg-bg-light p-8 rounded-2xl hover:shadow-lg transition-all duration-500 hover:-translate-y-1 reveal stagger-1">
+                <div class="bg-white p-8 rounded-2xl hover:shadow-lg transition-all duration-500 hover:-translate-y-1 reveal stagger-1">
                     <div class="w-14 h-14 rounded-2xl overflow-hidden mb-5">
                         <img src="/assets/logo.png" alt="Readmigo" class="w-full h-full">
                     </div>
@@ -340,7 +360,7 @@
                 </div>
 
                 <!-- Product 2: FocusReader -->
-                <div class="bg-bg-light p-8 rounded-2xl hover:shadow-lg transition-all duration-500 hover:-translate-y-1 reveal stagger-2">
+                <div class="bg-white p-8 rounded-2xl hover:shadow-lg transition-all duration-500 hover:-translate-y-1 reveal stagger-2">
                     <div class="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center mb-5">
                         <svg class="w-7 h-7 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 5c7.18 0 13 5.82 13 13M6 11a7 7 0 017 7m-6 0a1 1 0 110-2 1 1 0 010 2z"/>
@@ -358,7 +378,7 @@
                 </div>
 
                 <!-- Product 3: AI Tech Review -->
-                <div class="bg-bg-light p-8 rounded-2xl hover:shadow-lg transition-all duration-500 hover:-translate-y-1 reveal stagger-3">
+                <div class="bg-white p-8 rounded-2xl hover:shadow-lg transition-all duration-500 hover:-translate-y-1 reveal stagger-3">
                     <div class="w-14 h-14 bg-emerald-100 rounded-2xl flex items-center justify-center mb-5">
                         <svg class="w-7 h-7 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
@@ -378,27 +398,12 @@
         </div>
     </section>
 
-    <!-- Banner 3: AI Features -->
-    <section class="py-4 px-6 bg-bg-light">
+    <!-- Banner 5: AI Features -->
+    <section class="py-16 px-6 bg-white">
         <div class="max-w-5xl mx-auto">
             <div class="overflow-hidden rounded-2xl reveal-scale">
                 <img src="/assets/banner-ai.png" alt="Don't translate. Understand. - Readmigo AI Features" class="w-full h-auto banner-img" loading="lazy">
             </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="py-24 px-6 bg-[#0a0a1a] text-white">
-        <div class="max-w-4xl mx-auto text-center reveal">
-            <h2 class="text-3xl md:text-5xl font-bold mb-6 tracking-tight" data-i18n="cta_title">
-                Start your English reading journey today
-            </h2>
-            <p class="text-xl text-gray-400 mb-10" data-i18n="cta_subtitle">
-                Download Readmigo and discover the joy of reading in English.
-            </p>
-            <a href="https://web.readmigo.app/" target="_blank" rel="noopener" class="inline-block btn-gradient text-white px-10 py-4 rounded-full font-semibold text-lg hover:shadow-xl hover:shadow-purple-500/20 transition-all" data-i18n="cta_button">
-                Get Started Free
-            </a>
         </div>
     </section>
 
@@ -440,14 +445,16 @@
                         <ul class="space-y-2.5 text-sm">
                             <li><a href="/about" class="hover:text-white transition" data-i18n="nav_about">About</a></li>
                             <li><a href="https://ai.readmigo.app" target="_blank" rel="noopener" class="hover:text-white transition" data-i18n="footer_blog">Blog</a></li>
+                            <li><a href="/credits" class="hover:text-white transition" data-i18n="footer_credits">Credits</a></li>
+                            <li><a href="https://github.com/readmigo" target="_blank" rel="noopener" class="hover:text-white transition">GitHub</a></li>
                         </ul>
                     </div>
                     <div>
                         <h4 class="text-white font-semibold mb-4 text-sm" data-i18n="footer_support">Support</h4>
                         <ul class="space-y-2.5 text-sm">
                             <li><a href="/support" class="hover:text-white transition" data-i18n="footer_help">Help Center</a></li>
-                            <li><a href="/support/account-deletion" class="hover:text-white transition" data-i18n="footer_delete">Delete Account</a></li>
                             <li><a href="mailto:support@readmigo.app" class="hover:text-white transition" data-i18n="footer_contact">Contact Us</a></li>
+                            <li><a href="/support/account-deletion" class="hover:text-white transition" data-i18n="footer_delete">Delete Account</a></li>
                         </ul>
                     </div>
                     <div>
@@ -455,23 +462,17 @@
                         <ul class="space-y-2.5 text-sm">
                             <li><a href="/privacy" class="hover:text-white transition" data-i18n="footer_privacy">Privacy Policy</a></li>
                             <li><a href="/terms" class="hover:text-white transition" data-i18n="footer_terms">Terms of Service</a></li>
-                            <li><a href="/credits" class="hover:text-white transition" data-i18n="footer_credits">Credits</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
 
-            <!-- Language selector row -->
-            <div class="border-t border-white/5 pt-6 mb-6">
+            <!-- Bottom bar -->
+            <div class="border-t border-white/5 pt-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-gray-600">
+                <p data-i18n="footer_rights">&copy; 2025-2026 Readmigo. All rights reserved.</p>
                 <div class="flex flex-wrap items-center gap-2">
-                    <span class="text-xs text-gray-600 mr-2" data-i18n="footer_language">Language</span>
                     <div id="footer-langs" class="flex flex-wrap gap-2 text-xs"></div>
                 </div>
-            </div>
-
-            <!-- Bottom bar -->
-            <div class="border-t border-white/5 pt-6 flex flex-col md:flex-row md:items-center md:justify-between gap-2 text-xs text-gray-600">
-                <p data-i18n="footer_rights">&copy; 2025-2026 Readmigo. All rights reserved.</p>
                 <p data-i18n="footer_address">42 Church Ave, Mascot, NSW 2020, Sydney, Australia</p>
             </div>
         </div>
