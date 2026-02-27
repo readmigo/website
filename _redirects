@@ -8,6 +8,7 @@
 
 /support/account-deletion.html       /support/account-deletion       301
 
-# Chinese legal pages (clean URLs)
-/zh/privacy.html    /zh/privacy    301
-/zh/terms.html      /zh/terms      301
+# Removed zh/ directory - redirect old routes to canonical pages
+/zh/privacy      /privacy    301
+/zh/terms        /terms      301
+
