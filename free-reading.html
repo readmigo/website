@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Every Book, Free — Readmigo</title>
+    <meta name="description" content="1,200+ classic books, free forever. Download and read offline. 30 minutes of free listening daily. The greatest works of human civilization, right in your palm.">
+    <meta name="keywords" content="free books, classic literature, reading app, audiobooks, offline reading, Readmigo">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Every Book, Free — Readmigo">
+    <meta property="og:description" content="The greatest works of human civilization, right in your palm. No limits. No walls.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://readmigo.app/free-reading">
+    <meta property="og:image" content="https://readmigo.app/assets/banner-hero.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Every Book, Free — Readmigo">
+    <meta name="twitter:description" content="The greatest works of human civilization, right in your palm. No limits. No walls.">
+    <meta name="twitter:image" content="https://readmigo.app/assets/banner-hero.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#7C8DF5',
+                        'primary-dark': '#6B7AE8',
+                        secondary: '#B9B3F5',
+                        'brand-blue': '#8BB9FF',
+                        'brand-purple': '#B9B3F5',
+                        'brand-pink': '#F6B6E8',
+                        'text-primary': '#2D2E4A',
+                        'text-secondary': '#6B6F9C',
+                        'bg-light': '#F7F8FD',
+                        'bg-subtle': '#EEF0FA',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-bg { background: linear-gradient(135deg, #8BB9FF 0%, #B9B3F5 50%, #F6B6E8 100%); }
+        .text-gradient {
+            background: linear-gradient(135deg, #8BB9FF 0%, #B9B3F5 50%, #F6B6E8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .btn-gradient { background: linear-gradient(135deg, #8BB9FF 0%, #B9B3F5 50%, #F6B6E8 100%); }
+        .btn-gradient:hover { background: linear-gradient(135deg, #7AABFF 0%, #A8A2E6 50%, #E5A5D7 100%); }
+
+        /* Scroll animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.95);
+            transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal-scale.visible { opacity: 1; transform: scale(1); }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal-left.visible { opacity: 1; transform: translateX(0); }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal-right.visible { opacity: 1; transform: translateX(0); }
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+
+        @keyframes heroFadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-animate {
+            animation: heroFadeUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+            opacity: 0;
+        }
+        .hero-delay-1 { animation-delay: 0.1s; }
+        .hero-delay-2 { animation-delay: 0.3s; }
+        .hero-delay-3 { animation-delay: 0.5s; }
+        .hero-delay-4 { animation-delay: 0.7s; }
+
+        @keyframes floatUp {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        .float-anim { animation: floatUp 4s ease-in-out infinite; }
+
+        /* Gradient orb background blobs */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.35;
+            pointer-events: none;
+        }
+
+        /* Feature card hover */
+        .feature-card {
+            transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(124, 141, 245, 0.15);
+        }
+
+        /* Pro card gradient border */
+        .pro-card {
+            background: white;
+            border-radius: 1.5rem;
+            position: relative;
+        }
+        .pro-card::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: calc(1.5rem + 2px);
+            background: linear-gradient(135deg, #8BB9FF 0%, #B9B3F5 50%, #F6B6E8 100%);
+            z-index: -1;
+        }
+
+        /* Check icon gradient */
+        .check-icon {
+            background: linear-gradient(135deg, #8BB9FF 0%, #B9B3F5 50%, #F6B6E8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        html { scroll-behavior: smooth; }
+    </style>
+    <script src="/js/posthog.js"></script>
+</head>
+<body class="bg-white text-text-primary antialiased">
+
+    <!-- Skip navigation -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:bg-white focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg">Skip to main content</a>
+
+    <!-- Minimal header -->
+    <header class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-xl z-50 border-b border-gray-100/60">
+        <nav class="max-w-5xl mx-auto px-6 py-3.5 flex items-center justify-between" aria-label="Main navigation">
+            <a href="/" class="flex items-center gap-2.5" aria-label="Readmigo home">
+                <picture>
+                    <source srcset="/assets/logo.webp" type="image/webp">
+                    <img src="/assets/logo.png" alt="Readmigo" class="w-8 h-8 rounded-lg" width="32" height="32">
+                </picture>
+                <span class="text-xl font-bold text-gradient">Readmigo</span>
+            </a>
+            <a
+                href="https://apps.apple.com/app/readmigo/id6740539519"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-gradient text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition hover:shadow-lg hover:shadow-purple-500/20"
+                aria-label="Download Readmigo on the App Store"
+            >
+                Download Free
+            </a>
+        </nav>
+    </header>
+
+    <main id="main-content">
+
+        <!-- ============================================================
+             SECTION 1: HERO
+             ============================================================ -->
+        <section
+            class="relative min-h-screen flex flex-col items-center justify-center pt-20 pb-24 px-6 overflow-hidden"
+            aria-labelledby="hero-heading"
+        >
+            <!-- Background gradient -->
+            <div class="absolute inset-0 gradient-bg opacity-[0.08]" aria-hidden="true"></div>
+
+            <!-- Floating orbs -->
+            <div class="orb w-[500px] h-[500px] bg-brand-blue top-[-100px] left-[-150px]" aria-hidden="true"></div>
+            <div class="orb w-[400px] h-[400px] bg-brand-purple bottom-[-80px] right-[-100px]" aria-hidden="true"></div>
+            <div class="orb w-[300px] h-[300px] bg-brand-pink top-[30%] right-[10%]" aria-hidden="true"></div>
+
+            <!-- Badge -->
+            <div class="relative z-10 hero-animate hero-delay-1 mb-6">
+                <span class="inline-flex items-center gap-2 bg-bg-subtle text-text-secondary text-sm font-medium px-4 py-1.5 rounded-full border border-white/60">
+                    <span class="w-2 h-2 rounded-full bg-green-400 inline-block" aria-hidden="true"></span>
+                    New — Free for Everyone
+                </span>
+            </div>
+
+            <!-- Headline -->
+            <div class="relative z-10 text-center max-w-4xl mx-auto">
+                <h1
+                    id="hero-heading"
+                    class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.05] tracking-tight hero-animate hero-delay-2"
+                >
+                    Every Book,
+                    <span class="text-gradient block">Free.</span>
+                </h1>
+
+                <p class="mt-6 text-lg md:text-xl text-text-secondary max-w-2xl mx-auto leading-relaxed hero-animate hero-delay-3">
+                    The greatest works of human civilization, right in your palm.
+                    No limits. No walls.
+                </p>
+
+                <!-- CTA -->
+                <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 hero-animate hero-delay-4">
+                    <a
+                        href="https://apps.apple.com/app/readmigo/id6740539519"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-gradient text-white font-semibold px-8 py-4 rounded-2xl text-base transition hover:shadow-2xl hover:shadow-purple-400/30 hover:scale-105 inline-flex items-center gap-3"
+                        aria-label="Download Readmigo on the App Store — Free"
+                    >
+                        <!-- Apple icon -->
+                        <svg class="w-6 h-6 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                        </svg>
+                        <span>
+                            <span class="text-xs font-normal opacity-80 block leading-none mb-0.5">Download on the</span>
+                            <span class="text-base font-bold leading-none">App Store — Free</span>
+                        </span>
+                    </a>
+
+                    <a
+                        href="#whats-free"
+                        class="text-text-secondary hover:text-text-primary text-sm font-medium transition flex items-center gap-1.5"
+                        aria-label="Learn more about what's free"
+                    >
+                        See what's included
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Decorative book stack illustration -->
+            <div class="relative z-10 mt-16 float-anim" aria-hidden="true">
+                <div class="flex items-end justify-center gap-2 sm:gap-3">
+                    <!-- Book spines -->
+                    <div class="w-10 sm:w-12 h-32 sm:h-40 rounded-lg shadow-lg" style="background: linear-gradient(180deg, #8BB9FF, #6fa8f5)"></div>
+                    <div class="w-10 sm:w-12 h-40 sm:h-52 rounded-lg shadow-lg" style="background: linear-gradient(180deg, #B9B3F5, #9b94f0)"></div>
+                    <div class="w-12 sm:w-16 h-48 sm:h-60 rounded-lg shadow-xl" style="background: linear-gradient(180deg, #7C8DF5, #6070e8)"></div>
+                    <div class="w-10 sm:w-12 h-40 sm:h-52 rounded-lg shadow-lg" style="background: linear-gradient(180deg, #F6B6E8, #eda0d8)"></div>
+                    <div class="w-10 sm:w-12 h-32 sm:h-40 rounded-lg shadow-lg" style="background: linear-gradient(180deg, #B9B3F5, #ccc8f7)"></div>
+                </div>
+                <!-- Reflection -->
+                <div class="flex items-start justify-center gap-2 sm:gap-3 mt-1 opacity-20" style="transform: scaleY(-0.25); transform-origin: top;">
+                    <div class="w-10 sm:w-12 h-32 sm:h-40 rounded-lg" style="background: linear-gradient(180deg, #8BB9FF, #6fa8f5)"></div>
+                    <div class="w-10 sm:w-12 h-40 sm:h-52 rounded-lg" style="background: linear-gradient(180deg, #B9B3F5, #9b94f0)"></div>
+                    <div class="w-12 sm:w-16 h-48 sm:h-60 rounded-lg" style="background: linear-gradient(180deg, #7C8DF5, #6070e8)"></div>
+                    <div class="w-10 sm:w-12 h-40 sm:h-52 rounded-lg" style="background: linear-gradient(180deg, #F6B6E8, #eda0d8)"></div>
+                    <div class="w-10 sm:w-12 h-32 sm:h-40 rounded-lg" style="background: linear-gradient(180deg, #B9B3F5, #ccc8f7)"></div>
+                </div>
+            </div>
+
+            <!-- Scroll indicator -->
+            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 opacity-40" aria-hidden="true">
+                <span class="text-xs text-text-secondary">Scroll</span>
+                <svg class="w-4 h-4 text-text-secondary animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             SECTION 2: WHAT'S FREE
+             ============================================================ -->
+        <section
+            id="whats-free"
+            class="py-24 px-6 bg-bg-light"
+            aria-labelledby="whats-free-heading"
+        >
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-14 reveal">
+                    <p class="text-sm font-semibold text-primary uppercase tracking-widest mb-3">What's Included</p>
+                    <h2 id="whats-free-heading" class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-text-primary">
+                        Everything you need,<br class="hidden sm:block">
+                        <span class="text-gradient">no paywall in sight.</span>
+                    </h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6" role="list">
+
+                    <!-- Card 1: Books -->
+                    <article
+                        class="feature-card bg-white rounded-2xl p-8 border border-gray-100 reveal stagger-1"
+                        role="listitem"
+                    >
+                        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6" style="background: linear-gradient(135deg, rgba(139,185,255,0.15), rgba(185,179,245,0.15))">
+                            <!-- Book icon -->
+                            <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-text-primary mb-3">1,200+ Classic Books</h3>
+                        <p class="text-text-secondary leading-relaxed">
+                            Read any book, anytime. Shakespeare, Austen, Dickens, and more — the entire canon of classic literature is yours, permanently free.
+                        </p>
+                        <div class="mt-6 flex flex-wrap gap-2" aria-label="Example authors">
+                            <span class="text-xs bg-bg-subtle text-text-secondary px-3 py-1 rounded-full">Shakespeare</span>
+                            <span class="text-xs bg-bg-subtle text-text-secondary px-3 py-1 rounded-full">Austen</span>
+                            <span class="text-xs bg-bg-subtle text-text-secondary px-3 py-1 rounded-full">Dickens</span>
+                            <span class="text-xs bg-bg-subtle text-text-secondary px-3 py-1 rounded-full">+more</span>
+                        </div>
+                    </article>
+
+                    <!-- Card 2: Offline -->
+                    <article
+                        class="feature-card bg-white rounded-2xl p-8 border border-gray-100 reveal stagger-2"
+                        role="listitem"
+                    >
+                        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6" style="background: linear-gradient(135deg, rgba(185,179,245,0.15), rgba(246,182,232,0.15))">
+                            <!-- Download/offline icon -->
+                            <svg class="w-7 h-7 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-text-primary mb-3">Download &amp; Read Offline</h3>
+                        <p class="text-text-secondary leading-relaxed">
+                            Take your entire library anywhere. No internet needed. Commute, travel, or simply disconnect — your books go with you.
+                        </p>
+                        <div class="mt-6 flex items-center gap-2 text-sm text-text-secondary">
+                            <svg class="w-4 h-4 flex-shrink-0 text-green-400" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Works on airplane mode
+                        </div>
+                    </article>
+
+                    <!-- Card 3: Listening -->
+                    <article
+                        class="feature-card bg-white rounded-2xl p-8 border border-gray-100 reveal stagger-3"
+                        role="listitem"
+                    >
+                        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6" style="background: linear-gradient(135deg, rgba(246,182,232,0.15), rgba(139,185,255,0.15))">
+                            <!-- Headphones icon -->
+                            <svg class="w-7 h-7 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-text-primary mb-3">30 Minutes of Free Listening Daily</h3>
+                        <p class="text-text-secondary leading-relaxed">
+                            Audiobooks + AI Text-to-Speech. That's roughly 15 hours of listening per month — every single month, at no cost.
+                        </p>
+                        <div class="mt-6 flex items-center gap-2 text-sm text-text-secondary">
+                            <svg class="w-4 h-4 flex-shrink-0 text-green-400" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            ~15 hours/month, free
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             SECTION 3: WHY WE DID THIS
+             ============================================================ -->
+        <section
+            class="py-24 px-6 bg-white overflow-hidden"
+            aria-labelledby="why-heading"
+        >
+            <div class="max-w-5xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+                    <!-- Left: quote / visual -->
+                    <div class="reveal-left order-2 lg:order-1" aria-hidden="true">
+                        <div class="relative">
+                            <!-- Large decorative quote mark -->
+                            <div class="text-[10rem] leading-none font-serif text-gradient opacity-20 select-none absolute -top-8 -left-4" aria-hidden="true">"</div>
+                            <div class="relative z-10 space-y-4">
+                                <div class="gradient-bg rounded-2xl p-6 text-white">
+                                    <p class="text-lg font-medium leading-relaxed italic">
+                                        "The achievements of human civilization should benefit everyone."
+                                    </p>
+                                </div>
+                                <div class="bg-bg-subtle rounded-2xl p-6">
+                                    <p class="text-text-secondary leading-relaxed italic">
+                                        "A tap on your screen. A page in a classic novel. That's all it takes."
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: body text -->
+                    <div class="reveal-right order-1 lg:order-2">
+                        <p class="text-sm font-semibold text-primary uppercase tracking-widest mb-4">Our Belief</p>
+                        <h2 id="why-heading" class="text-3xl sm:text-4xl font-bold tracking-tight text-text-primary mb-6">
+                            Why we made<br>reading free
+                        </h2>
+                        <div class="space-y-4 text-text-secondary leading-relaxed">
+                            <p>
+                                Great literature has shaped every culture on Earth. Yet access to it has always depended on geography, income, or circumstance.
+                            </p>
+                            <p>
+                                We believe that shouldn't be the case. The works of Shakespeare, Tolstoy, Austen, and thousands more have outlasted empires — they belong to everyone.
+                            </p>
+                            <p>
+                                We want to lower the barrier to learning. Not with a free trial that expires, not with a limited preview. Just open the app and read.
+                            </p>
+                        </div>
+                        <a
+                            href="https://apps.apple.com/app/readmigo/id6740539519"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="mt-8 inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
+                            aria-label="Start reading on Readmigo — App Store"
+                        >
+                            Start reading now
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             SECTION 4: PRO — WHAT SUBSCRIPTION ADDS
+             ============================================================ -->
+        <section
+            class="py-24 px-6 bg-bg-light"
+            aria-labelledby="pro-heading"
+        >
+            <div class="max-w-2xl mx-auto">
+                <div class="text-center mb-10 reveal">
+                    <p class="text-sm font-semibold text-primary uppercase tracking-widest mb-3">Optional</p>
+                    <h2 id="pro-heading" class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-text-primary">
+                        Want even more?<br>
+                        <span class="text-gradient">Go Pro.</span>
+                    </h2>
+                    <p class="mt-4 text-text-secondary leading-relaxed">
+                        Free gets you far. Pro removes every limit.
+                    </p>
+                </div>
+
+                <!-- Pro card -->
+                <div class="pro-card shadow-xl shadow-purple-100/60 reveal-scale" role="region" aria-label="Readmigo Pro subscription details">
+                    <div class="p-8 sm:p-10">
+
+                        <!-- Pro badge -->
+                        <div class="flex items-center justify-between mb-8">
+                            <div class="inline-flex items-center gap-2">
+                                <span class="btn-gradient text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest">Pro</span>
+                                <span class="text-text-secondary text-sm">Readmigo Pro</span>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-2xl font-bold text-text-primary">$7.99<span class="text-base font-normal text-text-secondary">/mo</span></div>
+                                <div class="text-sm text-text-secondary mt-0.5">or $49.99/year <span class="text-green-500 font-medium">· Save 48%</span></div>
+                            </div>
+                        </div>
+
+                        <!-- Feature list -->
+                        <ul class="space-y-4" role="list" aria-label="Pro features">
+
+                            <li class="flex items-start gap-4" role="listitem">
+                                <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background: linear-gradient(135deg, rgba(139,185,255,0.2), rgba(185,179,245,0.2))">
+                                    <svg class="w-3.5 h-3.5 text-primary" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-text-primary">Cross-device sync</div>
+                                    <div class="text-sm text-text-secondary mt-0.5">Your highlights, progress, notes, and bookshelf stay in sync across all your devices.</div>
+                                </div>
+                            </li>
+
+                            <li class="flex items-start gap-4" role="listitem">
+                                <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background: linear-gradient(135deg, rgba(185,179,245,0.2), rgba(246,182,232,0.2))">
+                                    <svg class="w-3.5 h-3.5 text-secondary" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-text-primary">Cloud backup</div>
+                                    <div class="text-sm text-text-secondary mt-0.5">Never lose your data. Everything is safely backed up to the cloud, always.</div>
+                                </div>
+                            </li>
+
+                            <li class="flex items-start gap-4" role="listitem">
+                                <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background: linear-gradient(135deg, rgba(246,182,232,0.2), rgba(139,185,255,0.2))">
+                                    <svg class="w-3.5 h-3.5 text-pink-400" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-text-primary">Unlimited listening</div>
+                                    <div class="text-sm text-text-secondary mt-0.5">No daily cap. Listen to audiobooks and AI TTS for as long as you like.</div>
+                                </div>
+                            </li>
+
+                            <li class="flex items-start gap-4" role="listitem">
+                                <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background: linear-gradient(135deg, rgba(139,185,255,0.2), rgba(185,179,245,0.2))">
+                                    <svg class="w-3.5 h-3.5 text-primary" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-text-primary">Advanced reading statistics</div>
+                                    <div class="text-sm text-text-secondary mt-0.5">Track your reading streaks, speed, vocabulary growth, and long-term habits.</div>
+                                </div>
+                            </li>
+
+                        </ul>
+
+                        <!-- Divider -->
+                        <div class="my-8 border-t border-gray-100"></div>
+
+                        <!-- CTA -->
+                        <a
+                            href="https://apps.apple.com/app/readmigo/id6740539519"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn-gradient w-full text-white font-semibold py-4 rounded-xl text-base transition hover:shadow-lg hover:shadow-purple-400/25 flex items-center justify-center gap-2"
+                            aria-label="Try Readmigo Pro on the App Store"
+                        >
+                            Try Readmigo Pro
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+
+                        <p class="text-center text-xs text-text-secondary mt-4">
+                            Free plan always available. No credit card required to start.
+                        </p>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============================================================
+             SECTION 5: FINAL CTA BANNER
+             ============================================================ -->
+        <section
+            class="py-24 px-6 gradient-bg relative overflow-hidden"
+            aria-labelledby="final-cta-heading"
+        >
+            <div class="absolute inset-0 bg-white/10" aria-hidden="true"></div>
+            <div class="relative z-10 max-w-2xl mx-auto text-center">
+                <div class="reveal">
+                    <h2 id="final-cta-heading" class="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight mb-6">
+                        Open a book.<br>Change your world.
+                    </h2>
+                    <p class="text-white/80 text-lg leading-relaxed mb-10">
+                        Join readers exploring the greatest stories ever written — completely free.
+                    </p>
+                    <a
+                        href="https://apps.apple.com/app/readmigo/id6740539519"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center justify-center gap-3 bg-white text-text-primary font-semibold px-8 py-4 rounded-2xl text-base transition hover:shadow-2xl hover:scale-105 hover:bg-gray-50"
+                        aria-label="Download Readmigo for free on the App Store"
+                    >
+                        <svg class="w-6 h-6 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                        </svg>
+                        <span>
+                            <span class="text-xs font-normal opacity-60 block leading-none mb-0.5">Download on the</span>
+                            <span class="text-base font-bold leading-none">App Store — Free</span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================================
+         FOOTER
+         ============================================================ -->
+    <footer class="bg-white border-t border-gray-100 py-10 px-6" role="contentinfo">
+        <div class="max-w-5xl mx-auto">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+
+                <!-- Brand -->
+                <a href="/" class="flex items-center gap-2.5" aria-label="Readmigo home">
+                    <picture>
+                        <source srcset="/assets/logo.webp" type="image/webp">
+                        <img src="/assets/logo.png" alt="Readmigo" class="w-7 h-7 rounded-lg" width="28" height="28">
+                    </picture>
+                    <span class="text-lg font-bold text-gradient">Readmigo</span>
+                </a>
+
+                <!-- Links -->
+                <nav class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-text-secondary" aria-label="Footer navigation">
+                    <a href="/" class="hover:text-text-primary transition">Home</a>
+                    <a href="/privacy" class="hover:text-text-primary transition">Privacy Policy</a>
+                    <a href="/terms" class="hover:text-text-primary transition">Terms of Use</a>
+                    <a href="/support" class="hover:text-text-primary transition">Support</a>
+                    <a href="https://blog.readmigo.app" target="_blank" rel="noopener noreferrer" class="hover:text-text-primary transition">Blog</a>
+                </nav>
+
+                <!-- Copyright -->
+                <p class="text-xs text-text-secondary text-center sm:text-right">
+                    &copy; <span id="footer-year"></span> Readmigo. All rights reserved.
+                </p>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Dynamic copyright year
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+        // Intersection Observer for scroll reveal animations
+        (function () {
+            var observerOptions = {
+                threshold: 0.12,
+                rootMargin: '0px 0px -40px 0px'
+            };
+
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            var animatedElements = document.querySelectorAll('.reveal, .reveal-scale, .reveal-left, .reveal-right');
+            animatedElements.forEach(function (el) {
+                observer.observe(el);
+            });
+        })();
+    </script>
+
+</body>
+</html>
