@@ -11,4 +11,5 @@
 # Removed zh/ directory - redirect old routes to canonical pages
 /zh/privacy      /privacy    301
 /zh/terms        /terms      301
+/zh/free-reading /free-reading 301
 
