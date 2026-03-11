@@ -56,6 +56,7 @@
                 <span class="text-xl font-bold text-gradient">Readmigo</span>
             </a>
             <div class="hidden md:flex items-center gap-8">
+                <a href="/free-reading" class="text-gradient font-semibold transition text-sm" data-i18n="nav_freebooks">Free Books</a>
                 <a href="/#products" class="text-text-secondary hover:text-text-primary transition text-sm font-medium" data-i18n="nav_products">Products</a>
                 <a href="/#features" class="text-text-secondary hover:text-text-primary transition text-sm font-medium" data-i18n="nav_features">Features</a>
                 <a href="/about" class="text-text-secondary hover:text-text-primary transition text-sm font-medium" data-i18n="nav_about">About</a>
@@ -83,6 +84,7 @@
         </nav>
         <div id="mobile-menu" class="md:hidden bg-white border-t border-gray-100 px-6 py-4">
             <div class="flex flex-col gap-4">
+                <a href="/free-reading" class="text-gradient font-semibold transition text-sm" data-i18n="nav_freebooks">Free Books</a>
                 <a href="/#products" class="text-text-secondary hover:text-text-primary transition text-sm font-medium" data-i18n="nav_products">Products</a>
                 <a href="/#features" class="text-text-secondary hover:text-text-primary transition text-sm font-medium" data-i18n="nav_features">Features</a>
                 <a href="/about" class="text-text-secondary hover:text-text-primary transition text-sm font-medium" data-i18n="nav_about">About</a>
@@ -120,6 +122,40 @@
                 <h2 class="text-xl font-semibold mb-6">Frequently Asked Questions</h2>
 
                 <div class="space-y-4">
+                    <!-- Free Books -->
+                    <details class="group bg-bg-light rounded-xl p-4" open>
+                        <summary class="font-medium cursor-pointer list-none flex items-center justify-between">
+                            Are the books really free?
+                            <svg class="w-5 h-5 text-text-secondary group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </summary>
+                        <p class="mt-3 text-text-secondary">Yes! All 1,200+ classic English books in Readmigo are completely free to read — no subscription required. Chapters are automatically cached as you read, so you can continue offline. AI word explanations and content Q&A are also free for all users.</p>
+                    </details>
+
+                    <details class="group bg-bg-light rounded-xl p-4">
+                        <summary class="font-medium cursor-pointer list-none flex items-center justify-between">
+                            What's the difference between Free and Pro?
+                            <svg class="w-5 h-5 text-text-secondary group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </summary>
+                        <div class="mt-3 text-text-secondary">
+                            <p class="mb-2"><strong>Free for everyone:</strong> Full book library, AI features, 30 minutes of daily audio (TTS + audiobooks), and automatic chapter caching for offline reading.</p>
+                            <p><strong>Pro subscribers get:</strong> Unlimited audio listening, cross-device data sync (highlights, progress, notes), cloud backup, one-click full book download, AES-256 data encryption, and advanced reading stats.</p>
+                        </div>
+                    </details>
+
+                    <details class="group bg-bg-light rounded-xl p-4">
+                        <summary class="font-medium cursor-pointer list-none flex items-center justify-between">
+                            How does the 30-minute daily audio work?
+                            <svg class="w-5 h-5 text-text-secondary group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </summary>
+                        <p class="mt-3 text-text-secondary">Free users get 30 minutes of audio per day, shared between text-to-speech (TTS) and audiobook playback. The timer resets at midnight in your local timezone. That's about 15 hours per month — enough to finish a short novel. Pro subscribers have unlimited audio with no daily cap.</p>
+                    </details>
+
                     <!-- Account -->
                     <details class="group bg-bg-light rounded-xl p-4">
                         <summary class="font-medium cursor-pointer list-none flex items-center justify-between">
@@ -169,12 +205,9 @@
                     <details class="group bg-bg-light rounded-xl p-4">
                         <summary class="font-medium cursor-pointer list-none flex items-center justify-between">
                             How do I restore my purchase?
-                            <span class="flex items-center gap-2">
-                                <span class="text-xs text-brand-pink font-medium">Coming Soon</span>
-                                <svg class="w-5 h-5 text-text-secondary group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                                </svg>
-                            </span>
+                            <svg class="w-5 h-5 text-text-secondary group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
                         </summary>
                         <p class="mt-3 text-text-secondary">Go to Settings → Restore Purchases in the app. Make sure you're signed in with the same Apple ID or Google account used for the original purchase.</p>
                     </details>
@@ -182,68 +215,43 @@
                     <!-- Features -->
                     <details class="group bg-bg-light rounded-xl p-4">
                         <summary class="font-medium cursor-pointer list-none flex items-center justify-between">
-                            Is there a limit on AI features?
-                            <span class="flex items-center gap-2">
-                                <span class="text-xs text-brand-pink font-medium">Coming Soon</span>
-                                <svg class="w-5 h-5 text-text-secondary group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                                </svg>
-                            </span>
+                            Are AI features free?
+                            <svg class="w-5 h-5 text-text-secondary group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
                         </summary>
-                        <p class="mt-3 text-text-secondary">Free users have 10 AI interactions per day. Premium subscribers have unlimited AI access including word explanations, sentence simplification, and translations.</p>
+                        <p class="mt-3 text-text-secondary">Yes! AI word explanations, sentence analysis, and content Q&A are completely free for all users with no daily limits.</p>
                     </details>
 
                     <details class="group bg-bg-light rounded-xl p-4">
                         <summary class="font-medium cursor-pointer list-none flex items-center justify-between">
                             Does Readmigo work offline?
-                            <span class="flex items-center gap-2">
-                                <span class="text-xs text-brand-pink font-medium">Coming Soon</span>
-                                <svg class="w-5 h-5 text-text-secondary group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                                </svg>
-                            </span>
+                            <svg class="w-5 h-5 text-text-secondary group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
                         </summary>
-                        <p class="mt-3 text-text-secondary">Downloaded books can be read offline. However, AI features (word explanations, translations, etc.) require an internet connection.</p>
-                    </details>
-
-                    <details class="group bg-bg-light rounded-xl p-4">
-                        <summary class="font-medium cursor-pointer list-none flex items-center justify-between">
-                            How accurate are the AI translations?
-                            <span class="flex items-center gap-2">
-                                <span class="text-xs text-brand-pink font-medium">Coming Soon</span>
-                                <svg class="w-5 h-5 text-text-secondary group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                                </svg>
-                            </span>
-                        </summary>
-                        <p class="mt-3 text-text-secondary">Our AI provides high-quality translations, but they are intended for educational purposes. For critical translations, we recommend consulting professional services.</p>
+                        <p class="mt-3 text-text-secondary">Yes! Chapters are automatically cached as you read, so you can always pick up where you left off — even without internet. Pro subscribers can also download entire books with a single tap for complete offline access. AI features require an internet connection.</p>
                     </details>
 
                     <!-- Reading -->
                     <details class="group bg-bg-light rounded-xl p-4">
                         <summary class="font-medium cursor-pointer list-none flex items-center justify-between">
-                            How do I sync my reading progress?
-                            <span class="flex items-center gap-2">
-                                <span class="text-xs text-brand-pink font-medium">Coming Soon</span>
-                                <svg class="w-5 h-5 text-text-secondary group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                                </svg>
-                            </span>
+                            How do I sync my reading progress across devices?
+                            <svg class="w-5 h-5 text-text-secondary group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
                         </summary>
-                        <p class="mt-3 text-text-secondary">Reading progress syncs automatically when you're signed in. Make sure you're using the same account on all devices.</p>
+                        <p class="mt-3 text-text-secondary">Cross-device sync is a Pro feature. With a Pro subscription, your highlights, reading progress, notes, and bookshelf sync automatically across all your devices. Your reading data is silently saved from day one, so when you subscribe, everything appears instantly.</p>
                     </details>
 
                     <details class="group bg-bg-light rounded-xl p-4">
                         <summary class="font-medium cursor-pointer list-none flex items-center justify-between">
-                            Can I import my own books?
-                            <span class="flex items-center gap-2">
-                                <span class="text-xs text-brand-pink font-medium">Coming Soon</span>
-                                <svg class="w-5 h-5 text-text-secondary group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                                </svg>
-                            </span>
+                            Which platforms is Readmigo available on?
+                            <svg class="w-5 h-5 text-text-secondary group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
                         </summary>
-                        <p class="mt-3 text-text-secondary">Yes! You can import EPUB files from your device. Go to Library → Import and select your EPUB file. AI features work with imported books too.</p>
+                        <p class="mt-3 text-text-secondary">Readmigo is available on <a href="https://apps.apple.com/app/readmigo/id6740539519" class="text-primary hover:underline">iOS (App Store)</a>, <a href="https://play.google.com/store/apps/details?id=com.readmigo.app" class="text-primary hover:underline">Android (Google Play)</a>, and <a href="https://web.readmigo.app" class="text-primary hover:underline">Web browser</a>.</p>
                     </details>
                 </div>
             </section>
