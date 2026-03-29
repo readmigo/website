@@ -1550,16 +1550,21 @@
       applyLang(code);
       var menu = document.getElementById('lang-menu');
       if (menu) menu.classList.add('hidden');
+      var menuMobile = document.getElementById('lang-menu-mobile');
+      if (menuMobile) menuMobile.classList.add('hidden');
     });
     container.appendChild(btn);
   }
 
   function buildLangMenu() {
-    var container = document.getElementById('lang-menu');
-    if (!container) return;
-    container.textContent = '';
-    for (var i = 0; i < SUPPORTED.length; i++) {
-      createLangButton(SUPPORTED[i], container);
+    var ids = ['lang-menu', 'lang-menu-mobile'];
+    for (var j = 0; j < ids.length; j++) {
+      var container = document.getElementById(ids[j]);
+      if (!container) continue;
+      container.textContent = '';
+      for (var i = 0; i < SUPPORTED.length; i++) {
+        createLangButton(SUPPORTED[i], container);
+      }
     }
   }
 
@@ -1588,18 +1593,29 @@
   }
 
   function initLangToggle() {
-    var btn = document.getElementById('lang-toggle');
-    var menu = document.getElementById('lang-menu');
-    if (!btn || !menu) return;
-    btn.addEventListener('click', function (e) {
-      e.stopPropagation();
-      menu.classList.toggle('hidden');
-    });
+    var pairs = [
+      { btn: 'lang-toggle', menu: 'lang-menu' },
+      { btn: 'lang-toggle-mobile', menu: 'lang-menu-mobile' }
+    ];
+    for (var i = 0; i < pairs.length; i++) {
+      (function (btnId, menuId) {
+        var btn = document.getElementById(btnId);
+        var menu = document.getElementById(menuId);
+        if (!btn || !menu) return;
+        btn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          menu.classList.toggle('hidden');
+        });
+        menu.addEventListener('click', function (e) {
+          e.stopPropagation();
+        });
+      })(pairs[i].btn, pairs[i].menu);
+    }
     document.addEventListener('click', function () {
-      menu.classList.add('hidden');
-    });
-    menu.addEventListener('click', function (e) {
-      e.stopPropagation();
+      var menus = document.querySelectorAll('#lang-menu, #lang-menu-mobile');
+      for (var j = 0; j < menus.length; j++) {
+        menus[j].classList.add('hidden');
+      }
     });
   }
 
